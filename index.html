@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filing Taxes - Expert Accounting for Business & Personal</title>
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#0f172a',
+                            blue: '#005C97',
+                            lightBlue: '#E1F0FF',
+                            green: '#6BC606',
+                            greenDark: '#5aa605',
+                            gray: '#f8fafc',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'glow': '0 0 20px rgba(107, 198, 6, 0.4)',
+                    },
+                    transitionProperty: {
+                        'height': 'height',
+                        'spacing': 'margin, padding',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth transition for the sticky footer */
+        #sticky-footer {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+        
+        /* Desktop Hero Pattern */
+        .hero-pattern {
+            background-color: #0f172a;
+            background-image: linear-gradient(115deg, #0f172a 0%, #0f172a 45%, rgba(0, 92, 151, 0.8) 100%), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Mobile specific adjustments to inputs */
+        @media (max-width: 768px) {
+            input, select, textarea {
+                font-size: 16px !important; /* Prevents iOS zoom */
+            }
+            .hero-pattern {
+                background-image: linear-gradient(to bottom, #0f172a 0%, rgba(0, 92, 151, 0.9) 100%), url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80');
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 font-sans antialiased">
+
+    <!-- SMART STICKY FOOTER (Mobile Only - appears on scroll) -->
+    <div id="sticky-footer" class="fixed bottom-0 left-0 w-full bg-white border-t border-gray-200 shadow-[0_-5px_20px_rgba(0,0,0,0.1)] z-50 flex md:hidden transform translate-y-full pb-safe">
+        <a href="tel:416-479-8532" class="flex-1 flex flex-col items-center justify-center py-3 bg-gray-50 border-r border-gray-200 active:bg-gray-200 transition">
+            <i class="fas fa-phone-alt text-brand-blue text-xl mb-1"></i>
+            <span class="text-[10px] font-bold text-brand-navy uppercase tracking-wide">Call Now</span>
+        </a>
+        <a href="#consultation" class="flex-[2] flex flex-col items-center justify-center py-3 bg-brand-green active:bg-brand-greenDark transition text-white">
+            <span class="text-sm font-bold uppercase tracking-wide">Get Free Quote</span>
+            <span class="text-[10px] opacity-90">Fast Response</span>
+        </a>
+    </div>
+
+    <!-- TOP BAR (Desktop Only) -->
+    <div class="hidden md:block bg-brand-navy text-gray-300 py-2 text-xs border-b border-gray-800">
+        <div class="container mx-auto px-4 lg:px-8 flex justify-between">
+            <div class="flex space-x-6">
+                <span><i class="fas fa-map-marker-alt text-brand-green mr-2"></i>Serving the Greater Toronto Area</span>
+                <span><i class="fas fa-clock text-brand-green mr-2"></i>Mon - Fri: 9:00 AM - 5:00 PM</span>
+            </div>
+            <div class="font-semibold text-brand-green">
+                <i class="fas fa-check-circle mr-1"></i> Available 5 Days a Week for Advice
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN HEADER -->
+    <header class="bg-white shadow-md sticky top-0 z-40 transition-all duration-300">
+        <div class="container mx-auto px-4 lg:px-8 py-3 md:py-4 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#" class="flex-shrink-0 z-50">
+                <img src="https://d9hhrg4mnvzow.cloudfront.net/go.filingtaxes.ca/cc95aa66-logo_1000000000000000000028.png" alt="Filing Taxes" class="h-8 md:h-12 w-auto">
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden lg:flex items-center space-x-8 font-heading font-semibold text-gray-700 text-sm tracking-wide">
+                <a href="#services" class="hover:text-brand-blue transition duration-300 relative group">
+                    Services
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#reviews" class="hover:text-brand-blue transition duration-300 relative group">
+                    Reviews
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#locations" class="hover:text-brand-blue transition duration-300 relative group">
+                    Locations
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a href="#faq" class="hover:text-brand-blue transition duration-300 relative group">
+                    FAQ
+                    <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-blue transition-all duration-300 group-hover:w-full"></span>
+                </a>
+            </nav>
+
+            <!-- Desktop CTA -->
+            <div class="hidden md:flex items-center gap-6">
+                <div class="text-right leading-tight">
+                    <p class="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Talk to an Expert</p>
+                    <a href="tel:416-479-8532" class="text-xl font-heading font-extrabold text-brand-blue hover:text-brand-navy transition">416-479-8532</a>
+                </div>
+                <a href="#consultation" class="bg-brand-green hover:bg-brand-greenDark text-white px-6 py-3 rounded-lg font-bold shadow-lg hover:shadow-glow transform hover:-translate-y-0.5 transition duration-300">
+                    Get Started
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="mobile-menu-btn" class="lg:hidden text-gray-800 p-2 focus:outline-none z-50">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 pt-24 px-6 lg:hidden">
+            <div class="flex flex-col space-y-6 text-xl font-heading font-bold text-gray-800">
+                <a href="#services" class="border-b border-gray-100 pb-2" onclick="toggleMenu()">Services</a>
+                <a href="#reviews" class="border-b border-gray-100 pb-2" onclick="toggleMenu()">Reviews</a>
+                <a href="#locations" class="border-b border-gray-100 pb-2" onclick="toggleMenu()">Locations</a>
+                <a href="#faq" class="border-b border-gray-100 pb-2" onclick="toggleMenu()">FAQ</a>
+                <a href="tel:416-479-8532" class="text-brand-blue mt-4"><i class="fas fa-phone mr-3"></i> 416-479-8532</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-pattern relative pt-12 pb-20 lg:py-32 overflow-hidden">
+        <!-- Background decoration for desktop -->
+        <div class="hidden lg:block absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-brand-blue/20 to-transparent pointer-events-none"></div>
+
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12 xl:gap-20">
+                
+                <!-- Left: Copy -->
+                <div class="w-full lg:w-1/2 text-center lg:text-left text-white">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 mb-6 mx-auto lg:mx-0">
+                        <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+                        <span class="text-xs font-bold uppercase tracking-widest">Certified & Trusted</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl xl:text-6xl font-heading font-extrabold leading-tight mb-6 drop-shadow-lg">
+                        Tax Season <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-emerald-300">Stress Free.</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-200 mb-8 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        We handle everything from tax preparation to filing for individuals, families, self-employed & businesses. 
+                        <strong class="text-white">Save time and money with the GTA's top experts.</strong>
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 text-sm font-semibold text-gray-100 max-w-sm mx-auto lg:mx-0 mb-10">
+                        <div class="flex items-center"><i class="fas fa-check-circle text-brand-green mr-2"></i> 12+ Years Exp</div>
+                        <div class="flex items-center"><i class="fas fa-check-circle text-brand-green mr-2"></i> Affordable</div>
+                        <div class="flex items-center"><i class="fas fa-check-circle text-brand-green mr-2"></i> Fast Filing</div>
+                        <div class="flex items-center"><i class="fas fa-check-circle text-brand-green mr-2"></i> CRA Compliant</div>
+                    </div>
+
+                    <div class="hidden lg:flex items-center gap-6 opacity-80 grayscale hover:grayscale-0 transition duration-500">
+                        <img src="https://d9hhrg4mnvzow.cloudfront.net/go.filingtaxes.ca/p1bbzj-googlereviews-small_104y02p000000000000028.png" alt="Google" class="h-10">
+                        <img src="https://d9hhrg4mnvzow.cloudfront.net/go.filingtaxes.ca/84599e05-bbb-a-png-19_104302k000000000000028.png" alt="BBB" class="h-12">
+                        <div class="border-l border-gray-500 pl-6 ml-2">
+                            <p class="font-heading font-bold text-2xl">4.9/5</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Client Rating</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Form (The Conversion Engine) -->
+                <div class="w-full lg:w-1/2 max-w-lg mx-auto lg:mr-0">
+                    <div id="consultation" class="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 lg:p-10 relative overflow-hidden">
+                        <!-- Decorative top bar -->
+                        <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-brand-blue to-brand-green"></div>
+                        
+                        <div class="text-center mb-8">
+                            <h2 class="text-2xl lg:text-3xl font-heading font-bold text-brand-navy">Free Consultation</h2>
+                            <p class="text-gray-500 mt-2 text-sm lg:text-base">Fill out the form below. It takes less than 30s.</p>
+                        </div>
+
+                        <form action="/fsg?pageId=316cf997&variant=b" method="POST" class="space-y-4">
+                            <div>
+                                <label class="sr-only">Name</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <input type="text" name="name" placeholder="Your Name" required class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue focus:bg-white outline-none transition duration-200">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="sr-only">Phone</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <input type="tel" name="phone" placeholder="Phone Number" required class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue focus:bg-white outline-none transition duration-200">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="sr-only">Email</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <input type="email" name="email" placeholder="Email Address" required class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue focus:bg-white outline-none transition duration-200">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="sr-only">Message</label>
+                                <textarea name="message" rows="3" placeholder="How can we help? (e.g., Filing Taxes, Bookkeeping...)" class="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue focus:bg-white outline-none transition duration-200 resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-brand-green hover:bg-brand-greenDark text-white font-heading font-extrabold text-lg py-4 rounded-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 transition duration-300">
+                                Get Started Now
+                            </button>
+                        </form>
+                        
+                        <div class="mt-6 flex items-center justify-center text-xs text-gray-400 gap-4 border-t border-gray-100 pt-4">
+                            <span class="flex items-center"><i class="fas fa-lock mr-1"></i> Secure</span>
+                            <span class="flex items-center"><i class="fas fa-user-shield mr-1"></i> Private</span>
+                            <span class="flex items-center"><i class="fas fa-check mr-1"></i> No Spam</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST BAR (Mobile & Desktop) -->
+    <div class="bg-gray-50 border-b border-gray-200 py-8 lg:py-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6 lg:mb-8">Trusted by 600+ Canadian Families & Businesses</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 lg:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <img src="https://d9hhrg4mnvzow.cloudfront.net/go.filingtaxes.ca/84599e05-bbb-a-png-19_104302k000000000000028.png" alt="BBB" class="h-10 md:h-14 w-auto">
+                <img src="https://d9hhrg4mnvzow.cloudfront.net/go.filingtaxes.ca/3fc9cc98-yelp-4-5_104m03o000000000000028.png" alt="Yelp" class="h-8 md:h-12 w-auto">
+                <img src="https://d9hhrg4mnvzow.cloudfront.net/go.filingtaxes.ca/5e85c9a5-satisfaction-guarantee_104j04j000000000000028.png" alt="Satisfaction" class="h-10 md:h-14 w-auto">
+                <div class="hidden sm:flex items-center text-brand-navy font-bold text-lg md:text-xl"><i class="fas fa-certificate mr-2 text-brand-green text-2xl"></i> Certified Accountants</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SERVICES (Responsive Grid) -->
+    <section id="services" class="py-16 lg:py-24 bg-white">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-brand-green font-bold tracking-widest uppercase text-sm mb-3">What We Do</h2>
+                <h3 class="text-3xl md:text-4xl font-heading font-extrabold text-brand-navy mb-6">Expert Services. Affordable Prices.</h3>
+                <p class="text-gray-600 text-lg">We don't just file forms. We help you understand your finances, maximize your returns, and ensure compliance with Canadian law.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Card 1 -->
+                <div class="group p-8 rounded-2xl bg-white border border-gray-100 shadow-soft hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-14 h-14 bg-brand-lightBlue text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Personal Tax (T1)</h4>
+                    <p class="text-gray-600 mb-6">Expert preparation for individuals, students, and seniors. We find every deduction to maximize your refund.</p>
+                    <a href="#consultation" class="inline-flex items-center text-brand-blue font-bold text-sm uppercase group-hover:underline">
+                        Get Quote <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group p-8 rounded-2xl bg-white border border-gray-100 shadow-soft hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-14 h-14 bg-brand-lightBlue text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Corporate Tax (T2)</h4>
+                    <p class="text-gray-600 mb-6">Complete corporate solutions including T2 filing, financial statements, and strategic tax planning.</p>
+                    <a href="#consultation" class="inline-flex items-center text-brand-blue font-bold text-sm uppercase group-hover:underline">
+                        Get Quote <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group p-8 rounded-2xl bg-white border border-gray-100 shadow-soft hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-14 h-14 bg-brand-lightBlue text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Bookkeeping</h4>
+                    <p class="text-gray-600 mb-6">Stop drowning in receipts. We organize your books monthly so you are always ready for tax season.</p>
+                    <a href="#consultation" class="inline-flex items-center text-brand-blue font-bold text-sm uppercase group-hover:underline">
+                        Get Quote <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                 <!-- Card 4 -->
+                 <div class="group p-8 rounded-2xl bg-white border border-gray-100 shadow-soft hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-14 h-14 bg-brand-lightBlue text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Real Estate Tax</h4>
+                    <p class="text-gray-600 mb-6">Specialized accounting for realtors, investors, and landlords. Capital gains and rental income experts.</p>
+                    <a href="#consultation" class="inline-flex items-center text-brand-blue font-bold text-sm uppercase group-hover:underline">
+                        Get Quote <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                 <!-- Card 5 -->
+                 <div class="group p-8 rounded-2xl bg-white border border-gray-100 shadow-soft hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-14 h-14 bg-brand-lightBlue text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">HST & Payroll</h4>
+                    <p class="text-gray-600 mb-6">Never miss a deadline. We handle timely GST/HST filing and manage employee payroll and deductions.</p>
+                    <a href="#consultation" class="inline-flex items-center text-brand-blue font-bold text-sm uppercase group-hover:underline">
+                        Get Quote <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+
+                 <!-- Card 6 -->
+                 <div class="group p-8 rounded-2xl bg-white border border-gray-100 shadow-soft hover:shadow-xl hover:-translate-y-1 transition duration-300">
+                    <div class="w-14 h-14 bg-brand-lightBlue text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:bg-brand-blue group-hover:text-white transition duration-300">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Consultation</h4>
+                    <p class="text-gray-600 mb-6">Thinking of incorporating? Need a business plan? We offer strategic advice to grow your business.</p>
+                    <a href="#consultation" class="inline-flex items-center text-brand-blue font-bold text-sm uppercase group-hover:underline">
+                        Get Quote <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <div class="inline-block bg-brand-navy text-white px-8 py-6 rounded-2xl shadow-xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold mb-2">Cheaper Than The Big Firms</h3>
+                        <p class="text-gray-300 mb-4">We keep our overhead low to pass the savings to you.</p>
+                        <a href="tel:416-479-8532" class="bg-white text-brand-navy font-bold py-3 px-8 rounded-lg hover:bg-brand-green hover:text-white transition">
+                            Call 416-479-8532 for Price
+                        </a>
+                    </div>
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-brand-blue rounded-full mix-blend-overlay filter blur-xl opacity-50 transform translate-x-1/2 -translate-y-1/2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="reviews" class="py-16 lg:py-24 bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-4 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-heading font-extrabold text-center text-gray-900 mb-12">Our Clients Love Us</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md relative">
+                    <div class="text-yellow-400 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-gray-600 italic mb-6 leading-relaxed">"My husband used to file our taxes and I knew nothing about forms. Since my divorce, Filing Taxes has helped me with my personal tax T1 form. They made it incredibly simple."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold">AN</div>
+                        <div class="ml-3">
+                            <h4 class="font-bold text-gray-900">Andy N.</h4>
+                            <span class="text-xs text-gray-500">2 months ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md relative">
+                    <div class="text-yellow-400 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-gray-600 italic mb-6 leading-relaxed">"These guys are doing commendable work. They are just amazing. They are professional and have in depth knowledge of taxes. Highly recommended."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold">BM</div>
+                        <div class="ml-3">
+                            <h4 class="font-bold text-gray-900">Brain M.</h4>
+                            <span class="text-xs text-gray-500">3 months ago</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md relative">
+                    <div class="text-yellow-400 text-sm mb-4"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-gray-600 italic mb-6 leading-relaxed">"Ever since my business took off I wasn't able to look after my finances properly. They sorted out my tax issues and helped me focus on my core business."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-brand-blue text-white rounded-full flex items-center justify-center font-bold">MK</div>
+                        <div class="ml-3">
+                            <h4 class="font-bold text-gray-900">Mark K.</h4>
+                            <span class="text-xs text-gray-500">8 months ago</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATIONS -->
+    <section id="locations" class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-heading font-extrabold text-gray-900 mb-12">Serving 4 Convenient Locations</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="group p-6 rounded-xl border border-gray-200 hover:border-brand-blue hover:shadow-lg transition cursor-pointer">
+                    <i class="fas fa-map-marker-alt text-4xl text-brand-green mb-4 group-hover:scale-110 transition"></i>
+                    <h3 class="text-lg font-bold text-gray-900">Mississauga</h3>
+                    <p class="text-sm text-gray-500 mt-2 group-hover:text-brand-blue">View Map</p>
+                </div>
+                <div class="group p-6 rounded-xl border border-gray-200 hover:border-brand-blue hover:shadow-lg transition cursor-pointer">
+                    <i class="fas fa-map-marker-alt text-4xl text-brand-green mb-4 group-hover:scale-110 transition"></i>
+                    <h3 class="text-lg font-bold text-gray-900">Toronto</h3>
+                    <p class="text-sm text-gray-500 mt-2 group-hover:text-brand-blue">View Map</p>
+                </div>
+                <div class="group p-6 rounded-xl border border-gray-200 hover:border-brand-blue hover:shadow-lg transition cursor-pointer">
+                    <i class="fas fa-map-marker-alt text-4xl text-brand-green mb-4 group-hover:scale-110 transition"></i>
+                    <h3 class="text-lg font-bold text-gray-900">Oakville</h3>
+                    <p class="text-sm text-gray-500 mt-2 group-hover:text-brand-blue">View Map</p>
+                </div>
+                <div class="group p-6 rounded-xl border border-gray-200 hover:border-brand-blue hover:shadow-lg transition cursor-pointer">
+                    <i class="fas fa-map-marker-alt text-4xl text-brand-green mb-4 group-hover:scale-110 transition"></i>
+                    <h3 class="text-lg font-bold text-gray-900">Hamilton</h3>
+                    <p class="text-sm text-gray-500 mt-2 group-hover:text-brand-blue">View Map</p>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-blue-50 p-6 rounded-xl inline-block">
+                <h3 class="text-brand-blue font-bold text-lg mb-2"><i class="fas fa-laptop-house mr-2"></i> Virtual Services Available</h3>
+                <p class="text-gray-600 max-w-2xl">Can't make it to an office? We provide fully secure online tax filing and bookkeeping services via email and phone.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-3xl font-heading font-extrabold text-center text-gray-900 mb-12">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4">
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <button class="w-full px-6 py-5 text-left font-bold text-gray-800 flex justify-between items-center focus:outline-none hover:bg-gray-50 transition" onclick="toggleAccordion(this)">
+                        <span class="text-lg">How much do you charge?</span>
+                        <i class="fas fa-chevron-down text-brand-green transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-6 text-gray-600 border-t border-gray-100 leading-relaxed">
+                        Our pricing is very affordable and transparent. Prices vary based on complexity (e.g., simple T4 vs. self-employed), but we are definitely cheaper than the big box firms. Call us for a quick quote!
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <button class="w-full px-6 py-5 text-left font-bold text-gray-800 flex justify-between items-center focus:outline-none hover:bg-gray-50 transition" onclick="toggleAccordion(this)">
+                        <span class="text-lg">What documents do I need?</span>
+                        <i class="fas fa-chevron-down text-brand-green transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-6 text-gray-600 border-t border-gray-100 leading-relaxed">
+                        Generally, you need your T-slips (T4, T5, etc.), receipts for medical expenses, charitable donations, tuition (T2202), and RRSP contribution slips. For businesses, a summary of income and expenses is required.
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <button class="w-full px-6 py-5 text-left font-bold text-gray-800 flex justify-between items-center focus:outline-none hover:bg-gray-50 transition" onclick="toggleAccordion(this)">
+                        <span class="text-lg">Can you help with late filings?</span>
+                        <i class="fas fa-chevron-down text-brand-green transform transition-transform duration-200"></i>
+                    </button>
+                    <div class="hidden px-6 pb-6 text-gray-600 border-t border-gray-100 leading-relaxed">
+                        Yes! We specialize in catching up on late filings for previous years. We can help you organize your records and negotiate with the CRA if necessary to minimize penalties and interest.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-navy text-gray-400 py-12 md:py-16 pb-32 md:pb-16 border-t border-gray-800">
+        <div class="container mx-auto px-4 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Brand -->
+                <div>
+                    <img src="https://d9hhrg4mnvzow.cloudfront.net/go.filingtaxes.ca/cc95aa66-logo_1000000000000000000028.png" alt="Logo" class="h-8 w-auto mb-6 grayscale brightness-200">
+                    <p class="text-sm leading-relaxed mb-6">Filing Taxes is a certified professional accounting firm working for individuals and businesses across the GTA since 2008.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-brand-blue hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded bg-gray-800 flex items-center justify-center hover:bg-brand-blue hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Contact Us</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3 text-brand-green"></i>
+                            <a href="tel:416-479-8532" class="hover:text-white transition">416-479-8532</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3 text-brand-green"></i>
+                            <a href="tel:647-696-9030" class="hover:text-white transition">647-696-9030</a>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-brand-green"></i>
+                            <a href="mailto:info@filingtaxes.ca" class="hover:text-white transition">info@filingtaxes.ca</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Services</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Personal Tax Preparation</a></li>
+                        <li><a href="#" class="hover:text-white transition">Corporate Tax Filing</a></li>
+                        <li><a href="#" class="hover:text-white transition">Small Business Bookkeeping</a></li>
+                        <li><a href="#" class="hover:text-white transition">Payroll Services</a></li>
+                        <li><a href="#" class="hover:text-white transition">HST Return Filing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Areas -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Areas Served</h4>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="bg-gray-800 px-2 py-1 rounded">Toronto</span>
+                        <span class="bg-gray-800 px-2 py-1 rounded">Mississauga</span>
+                        <span class="bg-gray-800 px-2 py-1 rounded">Oakville</span>
+                        <span class="bg-gray-800 px-2 py-1 rounded">Hamilton</span>
+                        <span class="bg-gray-800 px-2 py-1 rounded">Brampton</span>
+                        <span class="bg-gray-800 px-2 py-1 rounded">North York</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2023 Filing Taxes. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // 1. Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+
+        menuBtn.addEventListener('click', () => {
+            const isHidden = menu.classList.contains('translate-x-full');
+            if (isHidden) {
+                menu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden'; // Lock scroll
+            } else {
+                menu.classList.add('translate-x-full');
+                document.body.style.overflow = 'auto'; // Unlock scroll
+            }
+        });
+
+        function toggleMenu() {
+            menu.classList.add('translate-x-full');
+            document.body.style.overflow = 'auto';
+        }
+
+        // 2. FAQ Accordion Logic
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+            
+            // Close others if desired (optional)
+            // document.querySelectorAll('#faq .hidden').forEach(el => el !== content && el.classList.add('hidden'));
+
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // 3. Smart Sticky Footer (Logic: Show after 15% scroll on mobile)
+        const stickyFooter = document.getElementById('sticky-footer');
+        
+        window.addEventListener('scroll', () => {
+            // Only relevant for mobile/tablet where the footer exists
+            if (window.innerWidth >= 768) return; 
+
+            // Calculate scroll percentage
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+
+            // Show if scrolled more than 15%
+            if (scrollPercent > 15) {
+                stickyFooter.classList.remove('translate-y-full');
+            } else {
+                stickyFooter.classList.add('translate-y-full');
+            }
+        });
+    </script>
+</body>
+</html>
